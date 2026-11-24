@@ -1,0 +1,22 @@
+Figma se export karke WebP mein yahan rakhein:
+
+public/assets/images/home/
+  hero-bg.webp          (1920x1019)  hero background
+  hero-shape-1.webp     (378x553)    hero/footer top-left line shape
+  hero-shape-2.webp     (545x654)    hero bottom-right gold shape
+  hero-1.webp ... hero-4.webp (580x812)  hero photo cards
+  about.webp            (828x828)    scales & gavel image
+  statue.webp           (transparent) lady justice background
+  service-1.webp ... service-6.webp (878x604)  services slider (order = config/var.php)
+  consultation.webp     (1034x1120)  form left image
+  client.webp           (transparent) testimonial person
+  emblem.webp           (transparent) scales emblem background
+  footer-bg.webp        (1920x420)   footer background
+
+public/assets/images/icons/
+  feature-1.svg ... feature-4.svg   "What We Do" card icons (20x20)
+
+public/assets/images/logo/
+  logo-white.png        (already exists — replace with new brand logo)
+
+Tip: photos ko 2x size par export karein (upar wale sizes), quality ~75-80.

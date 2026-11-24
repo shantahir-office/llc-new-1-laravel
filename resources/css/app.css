@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+@source '../../node_modules/tw-elements/js/**/*.js';
+/* 
+@theme {
+    --font-sans:F3ECE8
+        "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+} */
+
+
+@theme {
+    --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+    --font-jakarta: "Plus Jakarta Sans", sans-serif;
+
+    --color-primary: #1A0814;
+    --color-primary-light: #2D1424;
+    --color-frame: #2C1423;
+    --color-ink: #2A1A0D;
+    --color-secondary: #C5A880;
+    --color-secondary-dark: #9E825D;
+    --color-light: #FFFBF5;
+    --color-cream: #F3ECE2;
+    --color-pill: #F2F2F2;
+    --color-body: #4B5563;
+    --color-quote: #374151;
+    --color-muted: #D1D5DB;
+    --color-placeholder: #9CA3AF;
+    --color-snow: #F6FAFF;
+
+    --breakpoint-*: initial;
+    --breakpoint-xs: 420px;
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1200px;
+    --breakpoint-2xl: 1536px;
+    --breakpoint-4xl: 1920px;
+
+    --animate-float: float 6s ease-in-out infinite;
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+}
+}
+
+:root {
+    --selection-color: #C5A880;
+}
+@layer base {
+    * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+    img,
+    video {
+        max-width: 100%;
+        height: revert-layer;
+    }
+    html {
+        scroll-padding-top: 70px;
+        scroll-behavior: smooth;
+    }
+    body {
+        overflow-x: hidden;
+        @apply font-jakarta bg-light text-primary;
+    }
+    section,
+    .section {
+        @apply py-[clamp(40px,5vw,80px)] relative;
+    }
+    a {
+        @apply transition-all no-underline;
+    }
+    button,
+    [role="button"] {
+        @apply cursor-pointer;
+    }
+    p {
+        @apply text-body font-jakarta font-normal leading-relaxed text-sm 2xl:text-base;
+        margin-bottom: 1rem;
+    }
+    h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+        @apply text-primary mb-3 leading-tight font-jakarta font-bold;
+    }
+    h1, .h1 {
+        @apply text-[clamp(2rem,1.1rem+2.7vw,3.75rem)] leading-none tracking-[-1.5px];
+    }
+    h2, .h2 {
+        @apply text-[clamp(1.75rem,1.05rem+2vw,3rem)];
+    }
+    h3, .h3 {
+        @apply text-lg;
+    }
+
+    ::-webkit-scrollbar {
+        width: 5px;
+        height: 0.6em;
+        background: rgb(224, 220, 220);
+    }
+    ::-webkit-scrollbar-thumb {
+        background: var(--color-primary);
+        border-radius: 100vw;
+        background-clip: content-box;
+    }
+    ::selection {
+        background: var(--selection-color);
+        color: #fff;
+    }
+}
+
+
+@layer utilities {
+    .container {
+        @apply px-4 4xl:px-0 w-full max-w-full sm:max-w-[640px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1180px] 2xl:max-w-[1232px] mx-auto;
+    }
+}
+
+@layer components {
+
+    .sub-title {
+        @apply inline-flex items-center gap-3 text-xs leading-4 font-bold tracking-[2.4px] uppercase text-secondary-dark;
+    }
+    .section-title {
+        @apply font-bold text-primary text-[25px] lg:text-[28px] xl:text-[33px] 2xl:text-[48px] leading-[30px] 2xl:leading-[1.17];
+    }
+    .section-desc {
+        @apply text-base 2xl:text-lg leading-[1.67] text-body;
+    }
+
+    /* ---------- Slider arrows ---------- */
+    .circle-btn {
+        @apply flex size-11 4xl:size-[45px] shrink-0 items-center justify-center rounded-full
+        border border-primary-light text-primary-light transition-all duration-300
+        hover:bg-primary-light hover:text-white;
+    }
+    .circle-btn-fill {
+        @apply border-primary-light bg-primary-light text-white hover:bg-secondary hover:border-secondary hover:text-primary;
+    }
+
+
+    /* ---------- Hero section ---------- */
+.hero-banner {
+    @apply relative z-10 flex items-center overflow-hidden bg-primary bg-cover bg-center bg-no-repeat
+    min-h-dvh 4xl:min-h-[1019px]
+    pt-[clamp(110px,7.6vw,146px)] pb-[clamp(48px,4.6vw,88px)];
+}
+/* vIEWPORT SECTION STYLES */
+    .viewport-section {
+        align-items: center;
+        display: flex
+    }
+
+    @media(min-width: 1536px) {
+        @media not all and (min-width:1921px) {
+            .viewport-section {
+                min-height:100dvh
+            }
+        }
+    }
+
+
+    /* ---------- Feature cards ---------- */
+    .feature-card {
+        @apply flex flex-col gap-[11.3px] rounded-2xl border border-black/[0.04] bg-white p-7
+        shadow-[0_1px_2px_rgba(0,0,0,0.05)] transition-all duration-300
+        hover:-translate-y-1 hover:shadow-[0_20px_25px_-5px_rgba(0,0,0,0.08)];
+    }
+    .feature-icon {
+        @apply flex size-12 items-center justify-center rounded-xl bg-secondary text-primary;
+    }
+
+   
+
+    /* ---------- Service cards ---------- */
+    .service-card {
+        @apply rounded-[26.6px] bg-light p-[12.6px] pb-[25px] shadow-[0_10px_30px_-12px_rgba(26,8,20,0.12)];
+    }
+    .service-card img {
+        @apply aspect-[439/302] w-full object-cover transition-transform duration-700;
+    }
+    .service-card:hover img {
+        transform: scale(1.06);
+    }
+    .service-arrow {
+        @apply flex size-12 4xl:size-[54.57px] shrink-0 items-center justify-center rounded-full bg-primary text-white transition-all duration-300;
+    }
+    .service-card:hover .service-arrow {
+        @apply bg-secondary text-primary;
+    }
+
+    /* ----------Contact Form css---------- */
+    .form-label {
+        @apply mb-1.5 block text-xs 4xl:text-[12.12px] leading-4 font-semibold tracking-[0.6px] uppercase text-secondary;
+    }
+    .form-control {
+        @apply w-full rounded-full border-0 bg-white px-5 py-[12px] xl:py-[15px] text-sm 4xl:text-[14.14px] leading-[18px] font-medium text-primary
+        outline-none placeholder:text-placeholder focus:ring-2 focus:ring-secondary;
+    }
+    .form-error {
+        border-color: red !important;
+        border-width: 2px !important;
+    }
+    /* intl-tel-input (forms.js) */
+    .iti {
+        width: 100% !important;
+    }
+    .iti .form-control {
+        padding-left: 52px;
+    }
+    .text-danger {
+        color: #f87171;
+    }
+}
